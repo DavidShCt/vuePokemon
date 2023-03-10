@@ -1,15 +1,16 @@
 <template>
   <v-container>
     <v-list two-line>
-      <v-list-item-group v-model="selectedPokemon" active-class="pink--text">
-        <template v-for="pokemon in pokemons">
+      <v-list-item-group v-model="selectedPokemon">
+        <template v-for="pokemon, i in pokemons">
           <v-list-item :key="pokemon.id">
-            <template v-slot:default="{  }">
+            <template v-slot:default>
               <v-list-item-content @click="$emit( 'selection-pokemon', pokemon.id )">
                 <v-list-item-title>{{ pokemon.name }}</v-list-item-title>
               </v-list-item-content>
             </template>
           </v-list-item>
+          <v-divider v-if="i < pokemons.length - 1" :key="i + 'a'"/>
         </template>
       </v-list-item-group>
     </v-list>
@@ -43,5 +44,9 @@ export default {
     display: flex;
     justify-content: center;
 
+}
+
+.v-list-item--active{
+  color: blueviolet !important;
 }
 </style>

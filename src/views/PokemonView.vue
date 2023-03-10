@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="contenedor">
     <GeneralLoader v-if="!pokemon" :text="'Espere por favor...'"/>
 
     <div v-else>
@@ -66,7 +66,7 @@ export default {
 };
 </script>
 <style scoped>
-.container {
+.contenedor {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
