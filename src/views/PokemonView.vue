@@ -56,7 +56,7 @@ export default {
       this.showAnswer = false;
       this.pokemonArr = [];
       this.pokemon = null;
-      this.mixPokemonArray();
+      this.mixPokemonsArray();
     },
   },
   mounted(){
