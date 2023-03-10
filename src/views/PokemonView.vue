@@ -1,13 +1,13 @@
 <template>
   <v-container>
-    <div v-if="!pokemon">Espere por favor...</div>
+    <GeneralLoader v-if="!pokemon" :text="'Espere por favor...'"/>
 
     <div v-else>
-      <h1>¿Quíen es ese pokémon?</h1>
+      <h1 class="mt-5">¿Quíen es ese pokémon?</h1>
 
-      <PokemonPicture :pokemon-id="pokemon.id" :show-pokemon="showPokemon" />
+      <PokemonPicture class="mt-5" :pokemon-id="pokemon.id" :show-pokemon="showPokemon" />
 
-      <PokemonOptions :pokemons="pokemonArr" @selection-pokemon="checkAnswer" />
+      <PokemonOptions class="mt-5" :pokemons="pokemonArr" @selection-pokemon="checkAnswer" />
 
       <template v-if="showAnswer">
         <h2 class="fade-in">{{ message }}</h2>
@@ -20,14 +20,15 @@
 <script>
 import PokemonOptions from "../components/PokemonOptions.vue";
 import PokemonPicture from "../components/PokemonPicture.vue";
+import GeneralLoader from '../components/GeneralLoader.vue';
 import getPokemonOptions from "@/helpers/getPokemonOptions";
 export default {
   name: "PokemonView",
-  components: { PokemonOptions, PokemonPicture },
+  components: { PokemonOptions, PokemonPicture, GeneralLoader },
   data() {
     return {
       pokemonArr: [],
-      pokemon: null,
+      pokemon: false,
       showPokemon: false,
       showAnswer: false,
       message: "",
@@ -71,5 +72,33 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.fade-in{
+  animation: fadeIn 0.3s;
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  -o-animation: fadeIn 0.3s;
+  -ms-animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-o-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-ms-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 </style>

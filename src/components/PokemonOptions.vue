@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-list two-line>
-      <v-list-item-group v-model="selectedPokemon">
+      <v-list-item-group v-model="selectedPokemon" active-class="pink--text">
         <template v-for="pokemon in pokemons">
           <v-list-item :key="pokemon.id">
-            <template v-slot:default>
+            <template v-slot:default="{  }">
               <v-list-item-content @click="$emit( 'selection-pokemon', pokemon.id )">
                 <v-list-item-title>{{ pokemon.name }}</v-list-item-title>
               </v-list-item-content>
