@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-app-bar color="deep-purple accent-4"
+    <v-app-bar 
+      color="deep-purple accent-4"
       dense
-      dark>
+      dark
+    >
       <v-toolbar-title>PokeApp</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-switch
-        v-model="switch1"
-      ></v-switch>
+      <v-btn text @click="$vuetify.theme.dark = !$vuetify.theme.dark">Dark Mode</v-btn>
     </v-app-bar>
     <PokemonView/>
   </div>
